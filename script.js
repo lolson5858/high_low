@@ -32,12 +32,18 @@ function defineNum(number) {
 }
 
 
+let guessArr = [];
 
 //function that checks the user's guess for validity and proximity to target
-function guessCheck(num) {
+function guessCheck(num, guesses) {
   let guess = Number(document.getElementById('guess').value);
   let errMsg = document.getElementById('errMsg');
   let msg = document.getElementById('msg');
+  let win = (guess == num);
+  let arrFormat = guessArr.join(', ');
+  
+  console.log(guessArr);
+  
 
  
   if (isNaN(guess)) {
@@ -53,18 +59,22 @@ function guessCheck(num) {
     errMsg.style.color = 'red';
     errMsg.style.display = 'inline'
     msg.style.display = 'none';
-  } else if (guess == num) {
-    msg.innerHTML = "Nice, you got it!!!"
+  } else if (win) {
+    guessArr.push(guess);
+    msg.innerHTML = `Nice, you got it!!! It took you ${guessArr.length} tries. Your guesses were ${arrFormat} and finally ${guessArr.pop()} to win!`;
     msg.style.display = "block";
     errMsg.style.display = 'none';
+    
   } else if (guess < num) {
     msg.innerHTML = "It looks like your guess is a bit low. Guess again!";
     msg.style.display = "block";
     errMsg.style.display = 'none';
+    guessArr.push(guess);
   } else {
     msg.innerHTML = "Looks like your guess is a little high. Try again!"
     msg.style.display = "block";
     errMsg.style.display = 'none';
+    guessArr.push(guess);
     console.log(guess);
   }
   errMsg.classList.remove('hide');
