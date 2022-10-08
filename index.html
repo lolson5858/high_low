@@ -20,7 +20,8 @@
         <input type="text" id="guess" name="guess">
       </div>
       <span id="errMsg" class="hide"></span>
-      <button class="btn" onClick="guessCheck(numActual);return false;">Submit</button>
+      <button class="btn hideOnWin" onClick="guessCheck(numActual);return false;">Submit</button>
+      <button class="btn hide" id="playAgain" onclick="window.location.reload();">Play Again?</button>
     </form>
    
     

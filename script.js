@@ -69,11 +69,13 @@ function guessCheck(num) {
     msg.innerHTML = `Nice, you got it on the first attempt by guessing ${guessArr.pop()} to win!`;
     msg.style.display = "block";
     errMsg.style.display = 'none'; 
+    playAgain();
   } else if (win) {
     guessArr.push(guess);
     msg.innerHTML = `Nice, you got it!!! It took you ${guessArr.length} tries. Your guesses were ${arrFormat} and finally ${guessArr.pop()} to win!`;
     msg.style.display = "block";
     errMsg.style.display = 'none';
+    playAgain();
     
   } else if (guess < num) {
     msg.innerHTML = "It looks like your guess is a bit low. Guess again!";
@@ -91,3 +93,7 @@ function guessCheck(num) {
   msg.classList.remove('hide');
 }
 
+function playAgain() {
+  let playAgainBtn = document.getElementById('playAgain');
+  playAgainBtn.classList.remove('hide');
+}
