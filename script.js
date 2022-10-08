@@ -64,6 +64,11 @@ function guessCheck(num) {
     errMsg.style.color = 'red';
     errMsg.style.display = 'inline'
     msg.style.display = 'none'; 
+  } else if (win && guessArr.length == 0) {
+    guessArr.push(guess);
+    msg.innerHTML = `Nice, you got it on the first attempt by guessing ${guessArr.pop()} to win!`;
+    msg.style.display = "block";
+    errMsg.style.display = 'none'; 
   } else if (win) {
     guessArr.push(guess);
     msg.innerHTML = `Nice, you got it!!! It took you ${guessArr.length} tries. Your guesses were ${arrFormat} and finally ${guessArr.pop()} to win!`;
