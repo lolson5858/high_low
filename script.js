@@ -35,7 +35,7 @@ function defineNum(number) {
 let guessArr = [];
 
 //function that checks the user's guess for validity and proximity to target
-function guessCheck(num, guesses) {
+function guessCheck(num) {
   let guess = Number(document.getElementById('guess').value);
   let errMsg = document.getElementById('errMsg');
   let msg = document.getElementById('msg');
@@ -59,6 +59,11 @@ function guessCheck(num, guesses) {
     errMsg.style.color = 'red';
     errMsg.style.display = 'inline'
     msg.style.display = 'none';
+  } else if( guessArr.includes(guess)) {
+    errMsg.innerHTML = 'You\'ve already guessed that number, please enter another!.'
+    errMsg.style.color = 'red';
+    errMsg.style.display = 'inline'
+    msg.style.display = 'none'; 
   } else if (win) {
     guessArr.push(guess);
     msg.innerHTML = `Nice, you got it!!! It took you ${guessArr.length} tries. Your guesses were ${arrFormat} and finally ${guessArr.pop()} to win!`;
