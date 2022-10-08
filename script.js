@@ -41,7 +41,7 @@ function guessCheck(num) {
   let msg = document.getElementById('msg');
   let win = (guess == num);
   let arrFormat = guessArr.join(', ');
-  
+  let submit = document.getElementById('submit');
   console.log(guessArr);
   
 
@@ -69,13 +69,16 @@ function guessCheck(num) {
     msg.innerHTML = `Nice, you got it on the first attempt by guessing ${guessArr.pop()} to win!`;
     msg.style.display = "block";
     errMsg.style.display = 'none'; 
+    submit.style.display = 'none';
     playAgain();
   } else if (win) {
     guessArr.push(guess);
     msg.innerHTML = `Nice, you got it!!! It took you ${guessArr.length} tries. Your guesses were ${arrFormat} and finally ${guessArr.pop()} to win!`;
     msg.style.display = "block";
     errMsg.style.display = 'none';
+    submit.style.display = 'none';
     playAgain();
+    
     
   } else if (guess < num) {
     msg.innerHTML = "It looks like your guess is a bit low. Guess again!";
