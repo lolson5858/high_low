@@ -1,5 +1,6 @@
 let Mnumber = getMaxNumber('Enter a maximum number!')
-
+let msg = document.getElementById('msg');
+let guessArr = [];
 // function that prompts user for max number and returns input
 function getMaxNumber(prompt) {
   let validInput = false;
@@ -32,8 +33,6 @@ function defineNum(number) {
 }
 
 
-let guessArr = [];
-
 //function that checks the user's guess for validity and proximity to target
 function guessCheck(num) {
   let guess = Number(document.getElementById('guess').value);
@@ -60,7 +59,7 @@ function guessCheck(num) {
     errMsg.style.display = 'inline'
     msg.style.display = 'none';
   } else if( guessArr.includes(guess)) {
-    errMsg.innerHTML = 'You\'ve already guessed that number, please enter another!.'
+    errMsg.innerHTML = 'You\'ve already guessed that number, please enter another!'
     errMsg.style.color = 'red';
     errMsg.style.display = 'inline'
     msg.style.display = 'none'; 
@@ -80,23 +79,26 @@ function guessCheck(num) {
     playAgain();
     
     
-  } else if (guess < num) {
-    msg.innerHTML = "It looks like your guess is a bit low. Guess again!";
-    msg.style.display = "block";
-    errMsg.style.display = 'none';
-    guessArr.push(guess);
   } else {
-    msg.innerHTML = "Looks like your guess is a little high. Try again!"
-    msg.style.display = "block";
-    errMsg.style.display = 'none';
-    guessArr.push(guess);
-    console.log(guess);
+    feedback(guess, num);
   }
-  errMsg.classList.remove('hide');
-  msg.classList.remove('hide');
 }
 
 function playAgain() {
   let playAgainBtn = document.getElementById('playAgain');
   playAgainBtn.classList.remove('hide');
+}
+
+//feedback function refactored
+function feedback(guess, num) {
+  msg.style.display = "block";
+  errMsg.style.display = 'none';
+  if (guess < num) {
+      msg.innerHTML = "It looks like your guess is a bit low. Guess again!";
+      guessArr.push(guess);
+  } else {
+    msg.innerHTML = "Looks like your guess is a little high. Try again!"
+    guessArr.push(guess);
+    console.log(guess);
+  } 
 }
