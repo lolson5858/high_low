@@ -22,13 +22,12 @@ function getMaxNumber(prompt) {
 }
 
 let numActual = defineNum(Mnumber)
-console.log(numActual);
+// console.log('Target Number: ' + numActual);
 
 // function that defines the number to be guessed within the user's given range
 function defineNum(number) {
 
   let num = Math.floor(Math.random() * number + 1);
-  console.log(num);
   return num;
 }
 
@@ -37,22 +36,15 @@ function defineNum(number) {
 function guessCheck(num) {
   let guess = Number(document.getElementById('guess').value);
   let errMsg = document.getElementById('errMsg');
-  let msg = document.getElementById('msg');
   let win = (guess == num);
   let arrFormat = guessArr.join(', ');
-  let submit = document.getElementById('submit');
-  console.log(guessArr);
+  // console.log(guessArr);
   
-
- 
   if (isNaN(guess)) {
     errMsg.innerHTML = 'That is not a number!';
     errMsg.style.color = 'red';
     errMsg.style.display = 'inline'
     msg.style.display = 'none';
-  // } else if (guess > num || guess < 0) {
-  //   errMsg.innerHTML = 'That number is not in range. Please try again!';
-  //   errMsg.style.color = 'red';
   } else if( guess > Mnumber || guess < 0) {
     errMsg.innerHTML = 'That number is not in range, please try again.'
     errMsg.style.color = 'red';
@@ -66,27 +58,22 @@ function guessCheck(num) {
   } else if (win && guessArr.length == 0) {
     guessArr.push(guess);
     msg.innerHTML = `Nice, you got it on the first attempt by guessing ${guessArr.pop()} to win!`;
-    msg.style.display = "block";
-    errMsg.style.display = 'none'; 
-    submit.style.display = 'none';
     playAgain();
   } else if (win) {
     guessArr.push(guess);
     msg.innerHTML = `Nice, you got it!!! It took you ${guessArr.length} tries. Your guesses were ${arrFormat} and finally ${guessArr.pop()} to win!`;
-    msg.style.display = "block";
-    errMsg.style.display = 'none';
-    submit.style.display = 'none';
     playAgain();
-    
-    
   } else {
     feedback(guess, num);
   }
 }
-
+//function to display play again button
 function playAgain() {
   let playAgainBtn = document.getElementById('playAgain');
   playAgainBtn.classList.remove('hide');
+  msg.style.display = "block";
+  errMsg.style.display = 'none';
+  submit.style.display = 'none';
 }
 
 //feedback function refactored
