@@ -1,6 +1,7 @@
 let Mnumber = getMaxNumber('Enter a maximum number!')
 let msg = document.getElementById('msg');
 let guessArr = [];
+const submit = document.getElementById('submit');
 // function that prompts user for max number and returns input
 function getMaxNumber(prompt) {
   let validInput = false;
@@ -88,4 +89,15 @@ function feedback(guess, num) {
     guessArr.push(guess);
     console.log(guess);
   } 
+  // visual feedback for guesses
+  if (guessArr.length % 2 == 0) {
+    body.style.backgroundColor = '#d7d7a7';
+  } else {
+    body.style.backgroundColor = '#6767a7';
+  }
 }
+
+
+let body = document.querySelector("body")
+
+//areas to improve: refactoring win conditions, refactor error msgs, add visual feedback after guesses
