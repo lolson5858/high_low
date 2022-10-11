@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
+@import url('https://fonts.googleapis.com/css2?family=Bungee+Inline&family=Roboto&display=swap');
+
 * {
   box-sizing: border-box;
 }
@@ -13,22 +15,37 @@ body {
   margin: 0;
   height: 100vh;
   overflow: hidden;
-  /* background-color: #6767a7; */
+  background: rgba(103, 103, 167, 1);
 }
 
+h1 {
+  font-family: 'Bungee Inline', cursive, sans-serif;
+  font-size: 48px;
+  color: rgba(255, 166, 0, 0.6);
+  background-color: rgba(0, 0, 0, .9);
+  padding: 0 3rem;
+  border-radius: 2px;
+}
 .container {
   display: block;
   text-align: center;
+  border: 3px solid black;
+  padding: 0 1rem;
+  background: lightgray;
+  border-radius: 5px;
 }
 
 .btn {
   padding: 1.5rem 3rem;
   position: relative;
   margin: 2rem;
-  background-color: plum;
+  background-color:rgba(0, 0, 0, .9);
   border-radius: 5px;
   border: 0;
   cursor: pointer;
+  font-family: 'Bungee Inline', cursive, sans-serif;
+  color: rgba(255, 166, 0, 0.6);
+  letter-spacing: .2rem;
 }
 
 .btn:active {

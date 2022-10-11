@@ -32,7 +32,6 @@ function defineNum(number) {
   return num;
 }
 
-
 //function that checks the user's guess for validity and proximity to target
 function guessCheck(num) {
   let guess = Number(document.getElementById('guess').value);
@@ -91,13 +90,13 @@ function feedback(guess, num) {
   } 
   // visual feedback for guesses
   if (guessArr.length % 2 == 0) {
-    body.style.backgroundColor = '#d7d7a7';
+    body.style.backgroundColor = 'rgba(103, 103, 167, 1)';
   } else {
-    body.style.backgroundColor = '#6767a7';
+    body.style.backgroundColor = 'rgba(103, 103, 167, 0.9)';
   }
 }
-
 
 let body = document.querySelector("body")
 
 //areas to improve: refactoring win conditions, refactor error msgs, add visual feedback after guesses
+//refactor to take input without using the prompt() method, which seems to inhibit some js functionality with reloads
