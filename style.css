@@ -36,7 +36,7 @@ h1 {
 }
 
 .btn {
-  padding: 1.5rem 3rem;
+  padding: 0.5rem 1rem;
   position: relative;
   margin: 2rem;
   background-color:rgba(0, 0, 0, .9);
@@ -44,6 +44,7 @@ h1 {
   border: 0;
   cursor: pointer;
   font-family: 'Bungee Inline', cursive, sans-serif;
+  font-size: 1.2rem;
   color: rgba(255, 166, 0, 0.6);
   letter-spacing: .2rem;
 }
